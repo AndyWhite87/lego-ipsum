@@ -1,13 +1,13 @@
 {
-  "name": "projectName",
-  "version": "0.0.2",
-  "license": "MIT",
-  "author": "author name",
-  "contact": "author contact details",
-  "url": "https://github.com/author/repo",
+  "name": "lego-ipsum",
+  "version": "0.0.1",
+  "license": "GNU LESSER GENERAL PUBLIC LICENSE",
+  "author": "Andy WHite",
+  "contact": "https://twitter.com/etihWydnA",
+  "url": "https://github.com/AndyWhite87/lego-ipsum",
   "repository": {
     "type": "git",
-    "url": "git://github.com/author/repo.git"
+    "url": "git://github.com/AndyWhite87/lego-ipsum.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
