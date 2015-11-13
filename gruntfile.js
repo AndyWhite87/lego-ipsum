@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             ' * <%= pkg.author %> | <%= pkg.contact %>\n' +
             ' */\n',
 
-    filename: '<%= pkg.name %>',
+    filename: 'lego-ipsum',
 
     s: 'src/',  // The source directory
     d: 'dist/', // The distributable directory, where built files will end up
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
           paths: ['<%= s %>less/**/*.less']                       // Process all Less files in Less folder
         },
         files: {
-          "<%= s %>css/styles.css": "<%= s %>less/_styles.less",  // Build app.css based on _styles.less
+          "<%= s %>css/<%= filename %>.css": "<%= s %>less/_styles.less",  // Build app.css based on _styles.less
         }
       },
       dist: {
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          "<%= d %>css/styles.min.css": "<%= s %>less/_styles.less" // Build app.min.css version for build
+          "<%= d %>css/<%= filename %>.min.css": "<%= s %>less/_styles.less" // Build app.min.css version for build
         }
       }
     },
