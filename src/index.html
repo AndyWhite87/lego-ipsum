@@ -60,12 +60,19 @@
     /build -->
 
     <script>
-      window.onload = function() {
+      window.onload = function () {
+        /**
+         * Populate div with two paragraphs of Lego Ipsum text
+         */
         var legoIpsum = new LegoIpsum;
         legoIpsum.type = LegoIpsum.TEXT;
         legoIpsum.query = '2p';
         legoIpsum.createLegoIpsum(document.getElementById('lego-ipsum'));
 
+        /**
+         * Populate image with random sports-based pixelipsum image
+         * TODO create minifig-ipsum version of this
+         */
         var legoFigsum = new LegoIpsum;
         legoFigsum.type = LegoIpsum.IMAGE;
         legoFigsum.query = 'sports';
