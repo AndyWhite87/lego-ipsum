@@ -23,7 +23,7 @@
         var sentences = [];
       
         for (var j = 0; j < count; j++) {
-          var sentenceLength = this.randomInt(5, 10);
+          var sentenceLength = this.randomInt(3, 7);
           var words = [];
           for (var w = 0; w < sentenceLength; w++) {
             var word = this.createText(1, LegoIpsum.TYPE.WORD);
