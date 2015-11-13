@@ -12,7 +12,7 @@
         for (var i = 0; i < count; i++) {
           var paragraphLength = this.randomInt(10, 20);
           var paragraph = this.createText(paragraphLength, LegoIpsum.TYPE.SENTENCE);
-          paragraphs.push('<p>'+paragraph+'</p>');
+          paragraphs.push('<p>' + paragraph + '</p>');
         }
       
         return paragraphs.join('\n');
@@ -24,7 +24,11 @@
       
         for (var j = 0; j < count; j++) {
           var sentenceLength = this.randomInt(5, 10);
-          var words = this.createText(sentenceLength, LegoIpsum.TYPE.WORD).split(' ');
+          var words = [];
+          for (var w = 0; w < sentenceLength; w++) {
+            var word = this.createText(1, LegoIpsum.TYPE.WORD);
+            words.push(word);
+          }
           words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
           var sentence = words.join(' ');
           sentences.push(sentence);
@@ -34,7 +38,7 @@
 
       // Words are single words
       case LegoIpsum.TYPE.WORD:
-      
+
         var wordIndex = this.randomInt(0, LegoIpsum.WORDS.length - count - 1);
         return LegoIpsum.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
 
