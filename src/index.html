@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Page title -->
+    <!-- build:remove -->
+      <title>[Dev] Lego Ipsum</title>
+    <!-- /build -->
+    <!-- build:template
+      <title><%= title %></title>
+    /build -->
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta name="description" content="">
+
+    <!-- Font import(s) -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+
+    <!-- Stylesheet(s) -->
+    <!-- build:remove -->
+      <link rel="stylesheet" href="./css/styles.css">
+    <!-- /build -->
+    <!-- build:template
+      <link rel="stylesheet" href="./dist/css/<%= filename %>.min.css">
+    /build -->
+
+    <!-- Favicons -->
+
+  </head>
+  <body>
+
+    <h1>
+      <!-- build:remove -->
+      [Dev] Lego Ipsum
+      <!-- /build -->
+      <!-- build:template
+        <%= title %>
+      /build -->
+    </h1>
+
+    <div id="lorem"></div>
+
+    <img id="loremimg" src="" width="100" height="100">
+
+    <!-- Script(s) -->
+    <!-- build:remove -->
+      <script src="./js/lorem.js"></script>
+    <!-- /build -->
+    <!-- build:template
+      <script src="./dist/js/<%= filename %>.min.js"></script>
+    /build -->
+
+    <script>
+      window.onload = function() {
+        var lorem = new Lorem;
+        lorem.type = Lorem.TEXT;
+        lorem.query = '2p';
+        lorem.createLorem(document.getElementById('lorem'));
+
+        var loremimg = new Lorem;
+        loremimg.type = Lorem.IMAGE;
+        loremimg.query = 'sports';
+        loremimg.createLorem(document.getElementById('loremimg'));
+      };
+    </script>
+
+  </body>
+</html>
