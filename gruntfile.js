@@ -4,14 +4,14 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),       // Read in package variable from package.json
 
-    // Construct a banner containing package and build information
-    banner: '/* <%= pkg.name %> | <%= pkg.url %> | <%= pkg.license %>\n' +
-            ' * <%= pkg.author %> | <%= pkg.contact %>\n' +
-            ' */\n',
-
     title: 'Lego Ipsum',
 
     filename: '<%= pkg.name %>',
+
+    // Construct a banner containing package and build information
+    banner: '/* <%= title %> | <%= pkg.url %> | <%= pkg.license %>\n' +
+            ' * <%= pkg.author %> | <%= pkg.contact %>\n' +
+            ' */\n',
 
     s: 'src/',  // The source directory
     d: 'dist/', // The distributable directory, where built files will end up
