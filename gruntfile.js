@@ -9,7 +9,9 @@ module.exports = function(grunt) {
             ' * <%= pkg.author %> | <%= pkg.contact %>\n' +
             ' */\n',
 
-    filename: 'lego-ipsum',
+    title: 'Lego Ipsum',
+
+    filename: '<%= pkg.name %>',
 
     s: 'src/',  // The source directory
     d: 'dist/', // The distributable directory, where built files will end up
@@ -159,7 +161,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           data: {
-            title: '<%= pkg.name %>',
+            title: '<%= title %>',
             filename: '<%= filename %>'
           }
         },
