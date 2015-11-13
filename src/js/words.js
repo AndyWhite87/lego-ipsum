@@ -5,7 +5,7 @@
   // General terms
   "Lego", "Technic", "Duplo",
   "bricks", "plates", "studs",
-  "minifig", "hinge", "turntable",
+  "minifigs", "hinges", "turntables",
 
   // Sizes
   "2 x 4", "4 x 4", "8 x 2",
@@ -13,13 +13,13 @@
   // Piece types, from http://shop.lego.com/en-GB/Pick-A-Brick-ByTheme
   // TODO Add more piece types from same resource
   "accessories", "animals & creatures",
-  "connector", "scaffold", "decoration elements",
-  "fences","ladders", "cockpit", "functional elements",
-  "gate", "roof", "miscellaneous",
-  "not approved new element", "plants",
+  "connectors", "scaffolds", "decoration elements",
+  "fences","ladders", "cockpits", "functional elements",
+  "gates", "roofs", "miscellaneous",
+  "not approved new elements", "plants",
   "signs, flags and poles",
   "transportation", "tubes",
-  "wall elements", "wheel", "wheels",
+  "wall elements", "wheels",
 
 
   // Basic colors, from http://shop.lego.com/en-GB/Pick-A-Brick-ByTheme
@@ -33,14 +33,15 @@
   "space grey",
 
   // Community terms, from http://www.brothers-brick.com/lego-glossary/
-  "AFOL", "ALE",
-  "bandwagon", "bignette", "Billund", "brick-built", "BURP",
+  "AFOLs", "ALEs",
+  "bandwagon", "Billund", "brick-built", "BURP",
   "cheese slope", "clone", "custom", 
-  "dark ages", "diorama",
+  "dark ages", "dioramas",
   "greebles", "half-stud offset", "inventory",
-  "jumper plate", "KFOL", "LUG",
-  "MOC", "parts pack", "purist", "rainbow warrior",
-  "spaceship", "sigfig", "SNOT", "swooshable",
-  "TFOL", "vignette"
+  "jumper plates", "KFOLs", "LUGs",
+  "MOC", "parts packs", "purist", "rainbow warriors",
+  "spaceships", "spaceship spaceship spaceship",
+  "sigfigs", "SNOT", "swooshable",
+  "TFOLs", "vignettes", "bignettes"
 
   ];
