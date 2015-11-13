@@ -1,4 +1,4 @@
-/* Lego Ipsum | https://github.com/AndyWhite87/lego-ipsum | GNU LESSER GENERAL PUBLIC LICENSE
+/* lego-ipsum | https://github.com/AndyWhite87/lego-ipsum | GNU LESSER GENERAL PUBLIC LICENSE
  * Andy White | https://twitter.com/etihWydnA
  */
 var Lorem;
