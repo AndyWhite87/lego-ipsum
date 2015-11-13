@@ -38,18 +38,17 @@ var Lorem;
         switch (type) {
             //paragraphs are loads of sentences.
             case Lorem.TYPE.PARAGRAPH:
-                var paragraphs = new Array;
+                var paragraphs = [];
                 for (var i = 0; i < count; i++) {
                     var paragraphLength = this.randomInt(10, 20);
                     var paragraph = this.createText(paragraphLength, Lorem.TYPE.SENTENCE);
                     paragraphs.push('<p>'+paragraph+'</p>');
                 }
                 return paragraphs.join('\n');
-                break;
             //sentences are loads of words.
             case Lorem.TYPE.SENTENCE:
-                var sentences = new Array;
-                for (var i = 0; i < count; i++) {
+                var sentences = [];
+                for (var j = 0; j < count; j++) {
                     var sentenceLength = this.randomInt(5, 10);
                     var words = this.createText(sentenceLength, Lorem.TYPE.WORD).split(' ');
                     words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
@@ -58,19 +57,17 @@ var Lorem;
                     sentences.push(sentence);
                 }
                 return (sentences.join('. ') + '.').replace(/(\.\,|\,\.)/g, '.');
-                break;
             //words are words
             case Lorem.TYPE.WORD:
                 var wordIndex = this.randomInt(0, Lorem.WORDS.length - count - 1);
 
                 return Lorem.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
-                break;
         }
     };
     Lorem.prototype.createLorem = function(element) {
 
-        var lorem = new Array;
-        var count;
+        var lorem = [];
+        var count, type;
         
         if (/\d+-\d+[psw]/.test(this.query)){
             var range = this.query.replace(/[a-z]/,'').split("-");
@@ -80,13 +77,13 @@ var Lorem;
         }
         
         if (/\d+p/.test(this.query)) {
-            var type = Lorem.TYPE.PARAGRAPH;
+            type = Lorem.TYPE.PARAGRAPH;
         }
         else if (/\d+s/.test(this.query)) {
-            var type = Lorem.TYPE.SENTENCE;
+            type = Lorem.TYPE.SENTENCE;
         }
         else if (/\d+w/.test(this.query)) {
-            var type = Lorem.TYPE.WORD;
+            type = Lorem.TYPE.WORD;
         }
 
         lorem.push(this.createText(count, type));
@@ -114,7 +111,7 @@ var Lorem;
             }
         }
 
-        if (element == null)
+        if (element === null)
             return lorem;
     };
 
@@ -123,12 +120,12 @@ var Lorem;
         (function($) {
             $.fn.lorem = function() {
                 $(this).each(function() {
-                    var lorem = new Lorem;
+                    var lorem = new Lorem();
                     lorem.type = $(this).is('img') ? Lorem.IMAGE : Lorem.TEXT;
                     //data-lorem can be taken with data function (thanks to http://forrst.com/people/webking)
                     lorem.query = $(this).data('lorem');
                     lorem.createLorem(this);
-                })
+                });
             };
 
             //If developer run this javascript, then we can run the lorem.js
