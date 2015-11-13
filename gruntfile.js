@@ -24,12 +24,13 @@ module.exports = function(grunt) {
     concat: {
       options: {
         banner: '<%= banner %>' +
-                'var Lorem;' +
+                'var LegoIpsum;' +
                 '\n;(function() {\n\n"use strict";\n\n',
         footer: '\n})();\n'
       },
       dist: {
-        src: ['<%= s %>js/*.js'],                    // Define specific files in dependency order if required 
+        src: ['<%= s %>js/constructor.js', '<%= s %>js/static.js', '<%= s %>js/words.js',
+              '<%= s %>js/*.js', '<%= s %>js/jQuery.js'],
         dest: '<%= s %>js/concat/<%= filename %>.js' // Build to a temp concat folder (will be picked up by uglify task)
       }
     },
