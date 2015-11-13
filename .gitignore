@@ -1,0 +1,10 @@
+node_modules/
+coverage/lcov-report
+coverage/html
+*.cmd
+
+src/css/
+src/js/concat/
+
+dist/
+index.html
