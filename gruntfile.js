@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     concat: {
       options: {
         banner: '<%= banner %>' +
-                'var Lorem;' +
+                'var LegoIpsum;' +
                 '\n;(function() {\n\n"use strict";\n\n',
         footer: '\n})();\n'
       },

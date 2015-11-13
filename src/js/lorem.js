@@ -1,21 +1,21 @@
 
-  //Create a class named Lorem and constructor
-  Lorem = function() {
+  //Create a class named LegoIpsum and constructor
+  LegoIpsum = function() {
       //Default values.
       this.type = null;
       this.query = null;
       this.data = null;
     };
   //Static variables
-  Lorem.IMAGE = 1;
-  Lorem.TEXT = 2;
-  Lorem.TYPE = {
+  LegoIpsum.IMAGE = 1;
+  LegoIpsum.TEXT = 2;
+  LegoIpsum.TYPE = {
     PARAGRAPH: 1,
     SENTENCE: 2,
     WORD: 3
   };
   //Words to create lorem ipsum text.
-  Lorem.WORDS = [
+  LegoIpsum.WORDS = [
   "lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit", "ut", "aliquam,", "purus", "sit", "amet", "luctus", "venenatis,", "lectus", "magna", "fringilla", "urna,", "porttitor", "rhoncus", "dolor", "purus", "non", "enim", "praesent", "elementum", "facilisis", "leo,", "vel", "fringilla", "est", "ullamcorper", "eget", "nulla", "facilisi", "etiam", "dignissim", "diam", "quis", "enim", "lobortis", "scelerisque", "fermentum", "dui", "faucibus", "in", "ornare", "quam", "viverra", "orci", "sagittis", "eu", "volutpat", "odio", "facilisis", "mauris", "sit", "amet", "massa", "vitae", "tortor", "condimentum", "lacinia", "quis", "vel", "eros", "donec", "ac", "odio", "tempor", "orci", "dapibus", "ultrices", "in", "iaculis", "nunc", "sed", "augue", "lacus,", "viverra", "vitae", "congue", "eu,", "consequat", "ac", "felis", "donec", "et", "odio", "pellentesque", "diam", "volutpat", "commodo", "sed", "egestas", "egestas", "fringilla", "phasellus", "faucibus", "scelerisque", "eleifend", "donec", "pretium", "vulputate", "sapien", "nec", "sagittis", "aliquam", "malesuada", "bibendum", "arcu", "vitae", "elementum",
   "curabitur", "vitae", "nunc", "sed", "velit", "dignissim", "sodales", "ut", "eu", "sem", "integer", "vitae", "justo", "eget", "magna", "fermentum", "iaculis", "eu", "non", "diam", "phasellus", "vestibulum", "lorem", "sed", "risus", "ultricies", "tristique", "nulla", "aliquet", "enim", "tortor,", "at", "auctor", "urna", "nunc", "id", "cursus", "metus", "aliquam", "eleifend", "mi", "in", "nulla", "posuere", "sollicitudin", "aliquam", "ultrices", "sagittis", "orci,", "a", "scelerisque", "purus", "semper", "eget", "duis", "at", "tellus", "at", "urna", "condimentum", "mattis", "pellentesque", "id", "nibh", "tortor,", "id", "aliquet", "lectus", "proin", "nibh", "nisl,", "condimentum", "id", "venenatis", "a,", "condimentum", "vitae", "sapien", "pellentesque", "habitant", "morbi", "tristique", "senectus", "et", "netus", "et", "malesuada", "fames", "ac", "turpis", "egestas", "sed", "tempus,", "urna", "et", "pharetra", "pharetra,", "massa", "massa", "ultricies", "mi,", "quis", "hendrerit", "dolor", "magna", "eget", "est", "lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit", "pellentesque", "habitant", "morbi", "tristique", "senectus", "et", "netus", "et", "malesuada", "fames", "ac", "turpis", "egestas", "integer", "eget", "aliquet", "nibh", "praesent", "tristique", "magna", "sit", "amet", "purus", "gravida", "quis", "blandit", "turpis", "cursus", "in", "hac", "habitasse", "platea", "dictumst", "quisque", "sagittis,", "purus", "sit", "amet", "volutpat", "consequat,", "mauris", "nunc", "congue", "nisi,", "vitae", "suscipit", "tellus", "mauris", "a", "diam",
   "maecenas", "sed", "enim", "ut", "sem", "viverra", "aliquet", "eget", "sit", "amet", "tellus", "cras", "adipiscing", "enim", "eu", "turpis", "egestas", "pretium", "aenean", "pharetra,", "magna", "ac", "placerat", "vestibulum,", "lectus", "mauris", "ultrices", "eros,", "in", "cursus", "turpis", "massa", "tincidunt", "dui", "ut", "ornare", "lectus", "sit", "amet", "est", "placerat", "in", "egestas", "erat", "imperdiet", "sed", "euismod", "nisi", "porta", "lorem", "mollis", "aliquam", "ut", "porttitor", "leo", "a", "diam", "sollicitudin", "tempor", "id", "eu", "nisl", "nunc", "mi", "ipsum,", "faucibus", "vitae", "aliquet", "nec,", "ullamcorper", "sit", "amet", "risus", "nullam", "eget", "felis", "eget", "nunc", "lobortis", "mattis", "aliquam", "faucibus", "purus", "in", "massa", "tempor", "nec", "feugiat", "nisl", "pretium", "fusce", "id", "velit", "ut", "tortor", "pretium", "viverra", "suspendisse", "potenti", "nullam", "ac", "tortor", "vitae", "purus", "faucibus", "ornare", "suspendisse", "sed", "nisi", "lacus,", "sed", "viverra", "tellus", "in", "hac", "habitasse", "platea", "dictumst", "vestibulum", "rhoncus", "est", "pellentesque", "elit", "ullamcorper", "dignissim", "cras", "tincidunt", "lobortis", "feugiat", "vivamus", "at", "augue", "eget", "arcu", "dictum", "varius", "duis", "at", "consectetur", "lorem",
@@ -28,27 +28,27 @@
   "nullam", "vehicula", "ipsum", "a", "arcu", "cursus", "vitae", "congue", "mauris", "rhoncus", "aenean", "vel", "elit", "scelerisque", "mauris", "pellentesque", "pulvinar", "pellentesque", "habitant", "morbi", "tristique", "senectus", "et", "netus", "et", "malesuada", "fames", "ac", "turpis", "egestas", "maecenas", "pharetra", "convallis", "posuere", "morbi", "leo", "urna,", "molestie", "at", "elementum", "eu,", "facilisis", "sed", "odio", "morbi", "quis", "commodo", "odio", "aenean", "sed", "adipiscing", "diam", "donec", "adipiscing", "tristique", "risus", "nec", "feugiat", "in", "fermentum", "posuere", "urna", "nec", "tincidunt", "praesent", "semper", "feugiat", "nibh", "sed", "pulvinar", "proin", "gravida", "hendrerit", "lectus", "a", "molestie"
   ];
   //random integer method.
-  Lorem.prototype.randomInt = function (min, max) {
+  LegoIpsum.prototype.randomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   //text creator method with parameters: how many, what
-  Lorem.prototype.createText = function(count, type) {
+  LegoIpsum.prototype.createText = function(count, type) {
     switch (type) {
       //paragraphs are loads of sentences.
-      case Lorem.TYPE.PARAGRAPH:
+      case LegoIpsum.TYPE.PARAGRAPH:
       var paragraphs = [];
       for (var i = 0; i < count; i++) {
         var paragraphLength = this.randomInt(10, 20);
-        var paragraph = this.createText(paragraphLength, Lorem.TYPE.SENTENCE);
+        var paragraph = this.createText(paragraphLength, LegoIpsum.TYPE.SENTENCE);
         paragraphs.push('<p>'+paragraph+'</p>');
       }
       return paragraphs.join('\n');
       //sentences are loads of words.
-      case Lorem.TYPE.SENTENCE:
+      case LegoIpsum.TYPE.SENTENCE:
       var sentences = [];
       for (var j = 0; j < count; j++) {
         var sentenceLength = this.randomInt(5, 10);
-        var words = this.createText(sentenceLength, Lorem.TYPE.WORD).split(' ');
+        var words = this.createText(sentenceLength, LegoIpsum.TYPE.WORD).split(' ');
         words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
         var sentence = words.join(' ');
 
@@ -56,13 +56,13 @@
       }
       return (sentences.join('. ') + '.').replace(/(\.\,|\,\.)/g, '.');
       //words are words
-      case Lorem.TYPE.WORD:
-      var wordIndex = this.randomInt(0, Lorem.WORDS.length - count - 1);
+      case LegoIpsum.TYPE.WORD:
+      var wordIndex = this.randomInt(0, LegoIpsum.WORDS.length - count - 1);
 
-      return Lorem.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
+      return LegoIpsum.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
     }
   };
-  Lorem.prototype.createLorem = function(element) {
+  LegoIpsum.prototype.createLegoIpsum = function(element) {
 
         var lorem = [];
         var count, type;
@@ -75,22 +75,22 @@
         }
 
         if (/\d+p/.test(this.query)) {
-          type = Lorem.TYPE.PARAGRAPH;
+          type = LegoIpsum.TYPE.PARAGRAPH;
         }
         else if (/\d+s/.test(this.query)) {
-          type = Lorem.TYPE.SENTENCE;
+          type = LegoIpsum.TYPE.SENTENCE;
         }
         else if (/\d+w/.test(this.query)) {
-          type = Lorem.TYPE.WORD;
+          type = LegoIpsum.TYPE.WORD;
         }
 
         lorem.push(this.createText(count, type));
         lorem = lorem.join(' ');
 
         if (element) {
-          if (this.type == Lorem.TEXT)
+          if (this.type == LegoIpsum.TEXT)
             element.innerHTML += lorem;
-          else if (this.type == Lorem.IMAGE) {
+          else if (this.type == LegoIpsum.IMAGE) {
               //TODO: for now, using lorempixum.
               var path = '';
               var options = this.query.split(' ');
@@ -118,11 +118,11 @@
     (function($) {
       $.fn.lorem = function() {
         $(this).each(function() {
-          var lorem = new Lorem();
-          lorem.type = $(this).is('img') ? Lorem.IMAGE : Lorem.TEXT;
+          var lorem = new LegoIpsum();
+          lorem.type = $(this).is('img') ? LegoIpsum.IMAGE : LegoIpsum.TEXT;
           //data-lorem can be taken with data function (thanks to http://forrst.com/people/webking)
           lorem.query = $(this).data('lorem');
-          lorem.createLorem(this);
+          lorem.createLegoIpsum(this);
         });
       };
 
