@@ -47,6 +47,7 @@
   "Cloud Cuckooland",
   "Kragle", "Octan", "Piece of Resistance",
   "Emmet", "The Special", "Wyldstyle", "Vitruvius", "Unikitty", "Benny", "Metalbeard",
-  "President Business", "Bad Cop", "Good Cop"
+  "President Business", "Bad Cop", "Good Cop",
+  "awesome", "everything is awesome"
 
   ];
