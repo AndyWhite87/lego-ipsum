@@ -147,7 +147,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: '<%= s %>img',
-            src: '*',
+            src: '**/*',
             dest: '<%= d %>img',
             filter: 'isFile'
           }
