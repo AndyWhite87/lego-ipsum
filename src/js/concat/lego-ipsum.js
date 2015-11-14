@@ -22,6 +22,10 @@ var LegoIpsum;
 
   LegoIpsum.IMAGE = 1;
 
+  LegoIpsum.TOTAL_IMAGES = 55;
+
+  LegoIpsum.IMAGE_FOLDER = './img/figs/';
+
   LegoIpsum.TEXT = 2;
 
   LegoIpsum.TYPE = {
@@ -29,6 +33,18 @@ var LegoIpsum;
     SENTENCE: 2,
     WORD: 3
   };
+
+  // Overwrite variables based on data-attrs
+
+  (function () {
+    var scriptTag = document.querySelector('script[data-minifig-path]');
+    if (scriptTag !== null) {
+      var minifigPath = scriptTag.getAttribute("data-minifig-path");
+      if (typeof minifigPath !== 'undefined' && minifigPath !== null) {
+        LegoIpsum.IMAGE_FOLDER = minifigPath;
+      }
+    }
+  })();
 
 
   // Words to use when creating Lego ipsum text
@@ -53,7 +69,6 @@ var LegoIpsum;
   "transportation", "tubes",
   "wall elements", "wheels",
 
-
   // Basic colors, from http://shop.lego.com/en-GB/Pick-A-Brick-ByTheme
   "black", "blue", "grey", "purple", "red", "white", "yellow",
 
@@ -67,16 +82,24 @@ var LegoIpsum;
   // Community terms, from http://www.brothers-brick.com/lego-glossary/
   "AFOLs", "ALEs",
   "bandwagon", "Billund", "brick-built", "BURP",
-  "cheese slope", "clone", "custom", 
+  "cheese slope", "clone", "custom",
   "dark ages", "dioramas",
   "greebles", "half-stud offset", "inventory",
   "jumper plates", "KFOLs", "LUGs",
   "MOC", "parts packs", "purist", "rainbow warriors",
-  "spaceships", "spaceship spaceship spaceship",
   "sigfigs", "SNOT", "swooshable",
-  "TFOLs", "vignettes", "bignettes"
+  "TFOLs", "vignettes", "bignettes",
+
+  // The Lego Movie
+  "spaceships", "spaceship spaceship spaceship",
+  "Cloud Cuckooland",
+  "Kragle", "Octan", "Piece of Resistance",
+  "Emmet", "The Special", "Wyldstyle", "Vitruvius", "Unikitty", "Benny", "Metalbeard",
+  "President Business", "Bad Cop", "Good Cop",
+  "awesome", "everything is awesome"
 
   ];
+
 
   // Main creation method
   LegoIpsum.prototype.createLegoIpsum = function(element) {
@@ -110,27 +133,38 @@ var LegoIpsum;
       if (this.type === LegoIpsum.TEXT) {
         element.innerHTML += lorem;
       }
+
       else if (this.type === LegoIpsum.IMAGE) {
 
-        // TODO For now, using lorempixum
-        var path = '';
-        var options = this.query.split(' ');
+        // Append the requested number of minifigs. Default to 1
+        count = parseInt(this.query) || 1;
 
-        if (options[0] === 'gray') {
-          path += '/g';
-          options[0] = '';
+        // Record which minifigs have already been used. This will be cleared if all are used
+        var usedFigs = [];
+        var loop = 0;
+
+        while (loop < count) {
+
+          var fig = this.randomInt(1, LegoIpsum.TOTAL_IMAGES);
+
+          if (usedFigs.indexOf(fig) === -1) {
+
+            usedFigs.push(fig);
+            var path = LegoIpsum.IMAGE_FOLDER + fig + '.png';
+            var img = document.createElement('img');
+            img.setAttribute('class', 'minifig');
+            img.src = path;
+            element.appendChild(img);
+
+            // Reset usedFigs array if all have been used
+            if (usedFigs.length === LegoIpsum.TOTAL_IMAGES) {
+              usedFigs = [];
+            }
+
+            loop++;
+
+          }
         }
-
-        if (element.getAttribute('width')) {
-          path += '/' + element.getAttribute('width');
-        }
-
-        if (element.getAttribute('height')) {
-          path += '/' + element.getAttribute('height');
-        }
-
-        path += '/' + options.join(' ').replace(/(^\s+|\s+$)/, '');
-        element.src = 'http://lorempixum.com'+path.replace(/\/\//, '/');
 
       }
     }

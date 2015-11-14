@@ -21,7 +21,6 @@
   "transportation", "tubes",
   "wall elements", "wheels",
 
-
   // Basic colors, from http://shop.lego.com/en-GB/Pick-A-Brick-ByTheme
   "black", "blue", "grey", "purple", "red", "white", "yellow",
 
@@ -35,13 +34,20 @@
   // Community terms, from http://www.brothers-brick.com/lego-glossary/
   "AFOLs", "ALEs",
   "bandwagon", "Billund", "brick-built", "BURP",
-  "cheese slope", "clone", "custom", 
+  "cheese slope", "clone", "custom",
   "dark ages", "dioramas",
   "greebles", "half-stud offset", "inventory",
   "jumper plates", "KFOLs", "LUGs",
   "MOC", "parts packs", "purist", "rainbow warriors",
-  "spaceships", "spaceship spaceship spaceship",
   "sigfigs", "SNOT", "swooshable",
-  "TFOLs", "vignettes", "bignettes"
+  "TFOLs", "vignettes", "bignettes",
+
+  // The Lego Movie
+  "spaceships", "spaceship spaceship spaceship",
+  "Cloud Cuckooland",
+  "Kragle", "Octan", "Piece of Resistance",
+  "Emmet", "The Special", "Wyldstyle", "Vitruvius", "Unikitty", "Benny", "Metalbeard",
+  "President Business", "Bad Cop", "Good Cop",
+  "awesome", "everything is awesome"
 
   ];

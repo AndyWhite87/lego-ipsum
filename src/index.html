@@ -32,22 +32,40 @@
   </head>
   <body>
 
-    <h1>
-      <!-- build:remove -->
-      [Dev] Lego Ipsum
-      <!-- /build -->
-      <!-- build:template
-        <%= title %>
-      /build -->
-    </h1>
+    <header>
+      <h1>
+        <!-- build:remove -->
+        [Dev] Lego Ipsum
+        <!-- /build -->
+        <!-- build:template
+          <%= title %>
+        /build -->
+      </h1>
+    </header>
 
-    <div id="lego-ipsum"></div>
+    <section>
+      <h2>Lego Ipsum sentence(s)</h2>
+      <p id="lego-ipsum-sentence"></p>
+    </section>
 
-    <img id="lego-figsum" src="" width="100" height="100">
+    <section>
+      <h2>Lego Ipsum paragraph(s)</h2>
+      <div id="lego-ipsum-paragraphs"></div>
+    </section>
+
+    <section>
+      <h2>Lego Ipsum minifig(s)</h2>
+      <div id="lego-figsum" class="minifig-container"></div>
+      <p style="text-align: center">
+        <small>
+          <a href="./minifig-test.html">View all available minifigs</a>
+        </small>
+      </p>
+    </section>
 
     <!-- Script(s) -->
     <!-- build:remove -->
-      <script src="./js/constructor.js"></script>
+      <script src="./js/constructor.js" data-minifig-path="./img/figs/"></script>
       <script src="./js/static.js"></script>
       <script src="./js/words.js"></script>
       <script src="./js/randomInt.js"></script>
@@ -56,26 +74,33 @@
       <script src="./js/jQuery.js"></script>
     <!-- /build -->
     <!-- build:template
-      <script src="./dist/js/<%= filename %>.min.js"></script>
+      <script src="./dist/js/<%= filename %>.min.js" data-minifig-path="./dist/img/figs/"></script>
     /build -->
 
     <script>
       window.onload = function () {
         /**
-         * Populate div with two paragraphs of Lego Ipsum text
+         * Populate div with one word of Lego Ipsum text
          */
-        var legoIpsum = new LegoIpsum;
-        legoIpsum.type = LegoIpsum.TEXT;
-        legoIpsum.query = '2p';
-        legoIpsum.createLegoIpsum(document.getElementById('lego-ipsum'));
+        var legoIpsumWord = new LegoIpsum;
+        legoIpsumWord.type = LegoIpsum.TEXT;
+        legoIpsumWord.query = '1s';
+        legoIpsumWord.createLegoIpsum(document.getElementById('lego-ipsum-sentence'));
 
         /**
-         * Populate image with random sports-based pixelipsum image
-         * TODO create minifig-ipsum version of this
+         * Populate div with two paragraphs of Lego Ipsum text
+         */
+        var legoIpsumParas = new LegoIpsum;
+        legoIpsumParas.type = LegoIpsum.TEXT;
+        legoIpsumParas.query = '2p';
+        legoIpsumParas.createLegoIpsum(document.getElementById('lego-ipsum-paragraphs'));
+
+        /**
+         * Populate div with random minifig images
          */
         var legoFigsum = new LegoIpsum;
         legoFigsum.type = LegoIpsum.IMAGE;
-        legoFigsum.query = 'sports';
+        legoFigsum.query = '10';
         legoFigsum.createLegoIpsum(document.getElementById('lego-figsum'));
       };
     </script>

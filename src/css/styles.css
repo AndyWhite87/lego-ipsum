@@ -16,3 +16,26 @@ html h6,
 body h6 {
   font-weight: 400;
 }
+html header,
+body header {
+  text-align: center;
+  font-size: 1.1em;
+}
+img.minifig {
+  height: 130px;
+  padding: 18px;
+  vertical-align: top;
+}
+.minifig-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+section {
+  padding-bottom: 0.5em;
+  border-bottom: 1px #ddd solid;
+}
