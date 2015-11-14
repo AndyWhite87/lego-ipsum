@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Page title -->
+    <title>[Dev] Lego Ipsum image test page</title>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta name="description" content="">
+
+    <style>
+    html, body {
+      min-height: 100%;
+    }
+      body {
+        background: #C3FDB8;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        height: 130px;
+        padding: 18px;
+        vertical-align: top;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <script>
+      window.onload = function () {
+
+        var images = 55;
+
+        for (var i = 1; i <= images; i++) {
+          var img = document.createElement("img");
+          img.setAttribute("src", "./img/figs/" + i + ".png");
+          document.body.appendChild(img);
+        }
+
+      };
+    </script>
+
+  </body>
+</html>
