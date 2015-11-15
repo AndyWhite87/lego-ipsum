@@ -3,13 +3,13 @@
 
   (function () {
 
-    var legoIpsumEls = document.querySelectorAll('[lego-ipsum-type]');
+    var legoIpsumEls = document.querySelectorAll('[lego-ipsum]');
     if (legoIpsumEls === null) {
       return;
     }
 
     var getType = function(el) {
-      var providedType = el.getAttribute('lego-ipsum-type').toLowerCase();
+      var providedType = el.getAttribute('lego-ipsum').toLowerCase();
       var defaultType = 'phrase';
 
       switch (providedType) {
@@ -25,7 +25,7 @@
 
     var getQuery = function(el, type) {
       var count = parseInt(el.getAttribute('lego-ipsum-count')) || 1;
-      
+
       switch (type) {
         case 'word':
         case 'phrase':
