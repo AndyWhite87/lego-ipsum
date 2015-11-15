@@ -34,16 +34,23 @@ var LegoIpsum;
     WORD: 3
   };
 
-  // Overwrite variables based on data-attrs
+
+  // Overwrite initial static variables based on data-attrs
 
   (function () {
+
+    // Get the LegoIpsum script tag
     var scriptTag = document.querySelector('script[data-minifig-path]');
-    if (scriptTag !== null) {
-      var minifigPath = scriptTag.getAttribute("data-minifig-path");
-      if (typeof minifigPath !== 'undefined' && minifigPath !== null) {
-        LegoIpsum.IMAGE_FOLDER = minifigPath;
-      }
+    if (scriptTag === null) {
+      return;
     }
+
+    // Override path to minifig images if 'data-minifig-path' attr is present
+    var minifigPath = scriptTag.getAttribute('data-minifig-path');
+    if (typeof minifigPath !== 'undefined' && minifigPath !== null) {
+      LegoIpsum.IMAGE_FOLDER = minifigPath;
+    }
+
   })();
 
 
@@ -100,6 +107,59 @@ var LegoIpsum;
 
   ];
 
+
+  // Random integer method
+  LegoIpsum.prototype.randomInt = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+
+  // Text creator method with parameters: how many, what type
+  LegoIpsum.prototype.createText = function(count, type) {
+
+    switch (type) {
+
+      // Paragraphs are groups of sentences
+      case LegoIpsum.TYPE.PARAGRAPH:
+
+        var paragraphs = [];
+      
+        for (var i = 0; i < count; i++) {
+          var paragraphLength = this.randomInt(10, 20);
+          var paragraph = this.createText(paragraphLength, LegoIpsum.TYPE.SENTENCE);
+          paragraphs.push('<p>' + paragraph + '</p>');
+        }
+      
+        return paragraphs.join('\n');
+
+      // Sentences are groups of words
+      case LegoIpsum.TYPE.SENTENCE:
+      
+        var sentences = [];
+      
+        for (var j = 0; j < count; j++) {
+          var sentenceLength = this.randomInt(3, 7);
+          var words = [];
+          for (var w = 0; w < sentenceLength; w++) {
+            var word = this.createText(1, LegoIpsum.TYPE.WORD);
+            words.push(word);
+          }
+          words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
+          var sentence = words.join(' ');
+          sentences.push(sentence);
+        }
+      
+        return (sentences.join('. ') + '.').replace(/(\.\,|\,\.)/g, '.');
+
+      // Words are single words
+      case LegoIpsum.TYPE.WORD:
+
+        var wordIndex = this.randomInt(0, LegoIpsum.WORDS.length - count - 1);
+        return LegoIpsum.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
+
+    }
+
+  };
 
   // Main creation method
   LegoIpsum.prototype.createLegoIpsum = function(element) {
@@ -175,53 +235,6 @@ var LegoIpsum;
 
   };
 
-  // Text creator method with parameters: how many, what type
-  LegoIpsum.prototype.createText = function(count, type) {
-
-    switch (type) {
-
-      // Paragraphs are groups of sentences
-      case LegoIpsum.TYPE.PARAGRAPH:
-
-        var paragraphs = [];
-      
-        for (var i = 0; i < count; i++) {
-          var paragraphLength = this.randomInt(10, 20);
-          var paragraph = this.createText(paragraphLength, LegoIpsum.TYPE.SENTENCE);
-          paragraphs.push('<p>' + paragraph + '</p>');
-        }
-      
-        return paragraphs.join('\n');
-
-      // Sentences are groups of words
-      case LegoIpsum.TYPE.SENTENCE:
-      
-        var sentences = [];
-      
-        for (var j = 0; j < count; j++) {
-          var sentenceLength = this.randomInt(3, 7);
-          var words = [];
-          for (var w = 0; w < sentenceLength; w++) {
-            var word = this.createText(1, LegoIpsum.TYPE.WORD);
-            words.push(word);
-          }
-          words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
-          var sentence = words.join(' ');
-          sentences.push(sentence);
-        }
-      
-        return (sentences.join('. ') + '.').replace(/(\.\,|\,\.)/g, '.');
-
-      // Words are single words
-      case LegoIpsum.TYPE.WORD:
-
-        var wordIndex = this.randomInt(0, LegoIpsum.WORDS.length - count - 1);
-        return LegoIpsum.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
-
-    }
-
-  };
-
   // Register jQuery plugin
   if (typeof jQuery !== 'undefined') {
 
@@ -246,9 +259,93 @@ var LegoIpsum;
     
   }
 
-  // Random integer method
-  LegoIpsum.prototype.randomInt = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  // Find and act upon LegoIpsum declarations
+
+  (function () {
+
+    // Declarative attributes
+    var attrs = {
+      core: 'lego-ipsum'
+    };
+    attrs.count = attrs.core + '-count';
+    attrs.format = attrs.core + '-format';
+
+    // Run declarative functionality if one or more Lego Ipsum elements are present
+    var legoIpsumEls = document.querySelectorAll('[' + attrs.core + ']');
+    if (legoIpsumEls === null) {
+      return;
+    }
+
+    var getRequest = function(el) {
+      var providedRequest = el.getAttribute(attrs.core).toLowerCase();
+      var defaultRequest = 'phrase';
+
+      switch (providedRequest) {
+        case 'image':
+        case 'word':
+        case 'phrase':
+        case 'sentence':
+        case 'paragraph':
+          return providedRequest;
+        default:
+          return defaultRequest;
+      }
+    };
+
+    var getType = function(request) {      
+      switch (request) {
+        case 'image':
+          return 'IMAGE';
+        default:
+          return 'TEXT';
+      }
+    };
+
+    var getQuery = function(el, request) {
+      var count = parseInt(el.getAttribute(attrs.count)) || 1;
+
+      switch (request) {
+        case 'image':
+          return count;
+        case 'sentence':
+          return count + 's';
+        case 'paragraph':
+          return count + 'p';
+        default:
+          return count + 'w';        
+      }
+    };
+
+    var getSentenceCase = function(el, request) {
+      if (request === 'word' || request === 'phrase') {
+        return el.getAttribute(attrs.format) !== null;
+      }
+      return false;
+    };
+
+    for (var i = 0; i < legoIpsumEls.length; i++) {
+
+      // Get each element's type and infer a query from it and whether to use sentence casing 
+      var el = legoIpsumEls[i];
+      var request = getRequest(el);
+      var query = getQuery(el, request);
+      var sentenceCase = getSentenceCase(el, request);
+      var type = getType(request);
+
+      // Run LegoIpsum on the element with requested settings
+      var legoIpsum = new LegoIpsum();
+      legoIpsum.type = LegoIpsum[type];
+      legoIpsum.query = query;
+      legoIpsum.createLegoIpsum(el);
+
+      // Transform element's text to sentence format if requested and applicable
+      if (sentenceCase) {
+        el.textContent = el.textContent.substr(0, 1).toUpperCase() + el.textContent.substr(1);
+        el.textContent = el.textContent + '.';
+      }
+
+    }
+
+  })();
 
 })();
