@@ -44,18 +44,23 @@
     </header>
 
     <section>
+      <h2>Lego Ipsum phrase(s)</h2>
+      <p lego-ipsum="phrase" lego-ipsum-count="1" lego-ipsum-format></p>
+    </section>
+
+    <section>
       <h2>Lego Ipsum sentence(s)</h2>
-      <p id="lego-ipsum-sentence"></p>
+      <p lego-ipsum="sentence" lego-ipsum-count="1"></p>
     </section>
 
     <section>
       <h2>Lego Ipsum paragraph(s)</h2>
-      <div id="lego-ipsum-paragraphs"></div>
+      <p lego-ipsum="paragraph" lego-ipsum-count="1"></p>
     </section>
 
     <section>
       <h2>Lego Ipsum minifig(s)</h2>
-      <div id="lego-figsum" class="minifig-container"></div>
+      <div lego-ipsum="image" lego-ipsum-count="5" class="minifig-container"></div>
 
       <!-- build:remove -->
         <p style="text-align: center">
@@ -71,43 +76,17 @@
     <!-- build:remove -->
       <script src="./js/constructor.js" data-minifig-path="./img/figs/"></script>
       <script src="./js/static.js"></script>
+      <script src="./js/staticOverrides.js"></script>
       <script src="./js/words.js"></script>
       <script src="./js/randomInt.js"></script>
       <script src="./js/createText.js"></script>
       <script src="./js/createLegoIpsum.js"></script>
       <script src="./js/jQuery.js"></script>
+      <script src="./js/declarativeApi.js"></script>
     <!-- /build -->
     <!-- build:template
       <script src="./dist/js/<%= filename %>.min.js" data-minifig-path="./dist/img/figs/"></script>
     /build -->
-
-    <script>
-      window.onload = function () {
-        /**
-         * Populate div with one word of Lego Ipsum text
-         */
-        var legoIpsumWord = new LegoIpsum;
-        legoIpsumWord.type = LegoIpsum.TEXT;
-        legoIpsumWord.query = '1s';
-        legoIpsumWord.createLegoIpsum(document.getElementById('lego-ipsum-sentence'));
-
-        /**
-         * Populate div with two paragraphs of Lego Ipsum text
-         */
-        var legoIpsumParas = new LegoIpsum;
-        legoIpsumParas.type = LegoIpsum.TEXT;
-        legoIpsumParas.query = '2p';
-        legoIpsumParas.createLegoIpsum(document.getElementById('lego-ipsum-paragraphs'));
-
-        /**
-         * Populate div with random minifig images
-         */
-        var legoFigsum = new LegoIpsum;
-        legoFigsum.type = LegoIpsum.IMAGE;
-        legoFigsum.query = '10';
-        legoFigsum.createLegoIpsum(document.getElementById('lego-figsum'));
-      };
-    </script>
 
   </body>
 </html>
