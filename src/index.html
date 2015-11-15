@@ -44,13 +44,18 @@
     </header>
 
     <section>
+      <h2>Lego Ipsum phrase(s)</h2>
+      <p lego-ipsum-type="phrase" lego-ipsum-count="1" lego-ipsum-sentence-format="true"></p>
+    </section>
+
+    <section>
       <h2>Lego Ipsum sentence(s)</h2>
-      <p id="lego-ipsum-sentence"></p>
+      <p lego-ipsum-type="sentence" lego-ipsum-count="1"></p>
     </section>
 
     <section>
       <h2>Lego Ipsum paragraph(s)</h2>
-      <div id="lego-ipsum-paragraphs"></div>
+      <p lego-ipsum-type="paragraph" lego-ipsum-count="1"></p>
     </section>
 
     <section>
@@ -77,6 +82,7 @@
       <script src="./js/createText.js"></script>
       <script src="./js/createLegoIpsum.js"></script>
       <script src="./js/jQuery.js"></script>
+      <script src="./js/declarativeApi.js"></script>
     <!-- /build -->
     <!-- build:template
       <script src="./dist/js/<%= filename %>.min.js" data-minifig-path="./dist/img/figs/"></script>
@@ -84,22 +90,6 @@
 
     <script>
       window.onload = function () {
-        /**
-         * Populate div with one word of Lego Ipsum text
-         */
-        var legoIpsumWord = new LegoIpsum;
-        legoIpsumWord.type = LegoIpsum.TEXT;
-        legoIpsumWord.query = '1s';
-        legoIpsumWord.createLegoIpsum(document.getElementById('lego-ipsum-sentence'));
-
-        /**
-         * Populate div with two paragraphs of Lego Ipsum text
-         */
-        var legoIpsumParas = new LegoIpsum;
-        legoIpsumParas.type = LegoIpsum.TEXT;
-        legoIpsumParas.query = '2p';
-        legoIpsumParas.createLegoIpsum(document.getElementById('lego-ipsum-paragraphs'));
-
         /**
          * Populate div with random minifig images
          */
