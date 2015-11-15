@@ -45,7 +45,7 @@
 
     <section>
       <h2>Lego Ipsum phrase(s)</h2>
-      <p lego-ipsum="phrase" lego-ipsum-count="1" lego-ipsum-sentence-format="true"></p>
+      <p lego-ipsum="phrase" lego-ipsum-count="1" lego-ipsum-format></p>
     </section>
 
     <section>
@@ -60,7 +60,7 @@
 
     <section>
       <h2>Lego Ipsum minifig(s)</h2>
-      <div id="lego-figsum" class="minifig-container"></div>
+      <div lego-ipsum="image" lego-ipsum-count="5" class="minifig-container"></div>
 
       <!-- build:remove -->
         <p style="text-align: center">
@@ -87,18 +87,6 @@
     <!-- build:template
       <script src="./dist/js/<%= filename %>.min.js" data-minifig-path="./dist/img/figs/"></script>
     /build -->
-
-    <script>
-      window.onload = function () {
-        /**
-         * Populate div with random minifig images
-         */
-        var legoFigsum = new LegoIpsum;
-        legoFigsum.type = LegoIpsum.IMAGE;
-        legoFigsum.query = '10';
-        legoFigsum.createLegoIpsum(document.getElementById('lego-figsum'));
-      };
-    </script>
 
   </body>
 </html>
