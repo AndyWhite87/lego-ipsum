@@ -34,43 +34,56 @@
 
     <header>
       <h1>
+        <span lego-ipsum="image"></span>
         <!-- build:remove -->
         [Dev] Lego Ipsum
         <!-- /build -->
         <!-- build:template
           <%= title %>
         /build -->
+        <span lego-ipsum="image"></span>
       </h1>
     </header>
 
-    <section>
-      <h2>Lego Ipsum phrase(s)</h2>
-      <p lego-ipsum="phrase" lego-ipsum-count="1" lego-ipsum-format></p>
-    </section>
+    <div class="quad">
 
-    <section>
-      <h2>Lego Ipsum sentence(s)</h2>
-      <p lego-ipsum="sentence" lego-ipsum-count="1"></p>
-    </section>
+      <section>
+        <h2>Lego Ipsum phrase(s)</h2>
 
-    <section>
-      <h2>Lego Ipsum paragraph(s)</h2>
-      <p lego-ipsum="paragraph" lego-ipsum-count="1"></p>
-    </section>
+        <p data-height="400" data-theme-id="20958" data-slug-hash="MaLrLo" data-default-tab="result" data-user="AndyWhite87" class='codepen'>See the Pen <a href='http://codepen.io/AndyWhite87/pen/MaLrLo/'>Lego Ipsum phrase</a> by Andy White (<a href='http://codepen.io/AndyWhite87'>@AndyWhite87</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-    <section>
-      <h2>Lego Ipsum minifig(s)</h2>
-      <div lego-ipsum="image" lego-ipsum-count="5" class="minifig-container"></div>
+      </section>
 
-      <!-- build:remove -->
-        <p style="text-align: center">
-          <small>
-            <a href="./minifig-test.html">View all available minifigs</a>
-          </small>
-        </p>        
-      <!-- /build -->
-      
-    </section>
+      <section>
+        <h2>Lego Ipsum sentence(s)</h2>
+
+        <p data-height="400" data-theme-id="20958" data-slug-hash="LpqQPM" data-default-tab="result" data-user="AndyWhite87" class='codepen'>See the Pen <a href='http://codepen.io/AndyWhite87/pen/MaLrLo/'>Lego Ipsum phrase</a> by Andy White (<a href='http://codepen.io/AndyWhite87'>@AndyWhite87</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+      </section>
+
+      <section>
+        <h2>Lego Ipsum paragraph(s)</h2>
+
+        <p data-height="400" data-theme-id="20958" data-slug-hash="RWvQbX" data-default-tab="result" data-user="AndyWhite87" class='codepen'>See the Pen <a href='http://codepen.io/AndyWhite87/pen/MaLrLo/'>Lego Ipsum phrase</a> by Andy White (<a href='http://codepen.io/AndyWhite87'>@AndyWhite87</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+      </section>
+
+      <section>
+        <h2>Lego Ipsum minifig(s)</h2>
+
+        <p data-height="400" data-theme-id="20958" data-slug-hash="qOgxEQ" data-default-tab="result" data-user="AndyWhite87" class='codepen'>See the Pen <a href='http://codepen.io/AndyWhite87/pen/MaLrLo/'>Lego Ipsum phrase</a> by Andy White (<a href='http://codepen.io/AndyWhite87'>@AndyWhite87</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+        <!-- build:remove -->
+          <p class="pen-overlay">
+            <small>
+              <a href="./minifig-test.html">View all available minifigs</a>
+            </small>
+          </p>        
+        <!-- /build -->
+        
+      </section>
+
+    </div>
 
     <!-- Script(s) -->
     <!-- build:remove -->
@@ -86,6 +99,8 @@
     <!-- build:template
       <script src="./dist/js/<%= filename %>.min.js" data-minifig-path="./dist/img/figs/"></script>
     /build -->
+
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
   </body>
 </html>

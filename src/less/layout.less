@@ -1,0 +1,38 @@
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.quad {
+  margin: 1em;
+  margin-left: 0;
+
+  @media (min-width: @breakpoint) {
+    margin: 2em;
+    margin-left: 0;
+  }
+}
+
+section {
+  padding-bottom: 0.5em;
+  margin-left: 1em;
+
+  @media (min-width: @breakpoint) {
+    margin-left: 2em;
+  }
+
+  .quad & {
+
+    @media (min-width: @breakpoint) {
+      display: inline-block;
+      width: calc(~"50% - 1em");
+      float: left;
+
+      @media (min-width: @breakpoint) {
+        width: calc(~"50% - 2em");
+      }
+    }
+
+  }
+}
