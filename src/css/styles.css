@@ -26,6 +26,11 @@ img.minifig {
   padding: 18px;
   vertical-align: top;
 }
+h1 img.minifig {
+  height: 1.5em;
+  padding: 0 0.25em;
+  vertical-align: middle;
+}
 .minifig-container {
   display: flex;
   flex-flow: row wrap;
@@ -35,10 +40,49 @@ img.minifig {
 a {
   text-decoration: none;
 }
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.quad {
+  margin: 1em;
+  margin-left: 0;
+}
+@media (min-width: 800px) {
+  .quad {
+    margin: 2em;
+    margin-left: 0;
+  }
+}
 section {
   padding-bottom: 0.5em;
-  border-bottom: 1px #ddd solid;
+  margin-left: 1em;
 }
-section:last-of-type {
-  border-bottom: none;
+@media (min-width: 800px) {
+  section {
+    margin-left: 2em;
+  }
+}
+@media (min-width: 800px) {
+  .quad section {
+    display: inline-block;
+    width: calc(50% - 1em);
+    float: left;
+  }
+}
+@media (min-width: 800px) and (min-width: 800px) {
+  .quad section {
+    width: calc(50% - 2em);
+  }
+}
+.pen-overlay {
+  text-align: center;
+  margin: 0;
+  margin-top: -2em;
+  position: relative;
+  pointer-events: none;
+}
+.pen-overlay a {
+  pointer-events: all;
 }

@@ -125,7 +125,7 @@ var LegoIpsum;
         var paragraphs = [];
       
         for (var i = 0; i < count; i++) {
-          var paragraphLength = this.randomInt(10, 20);
+          var paragraphLength = this.randomInt(5, 10);
           var paragraph = this.createText(paragraphLength, LegoIpsum.TYPE.SENTENCE);
           paragraphs.push('<p>' + paragraph + '</p>');
         }
