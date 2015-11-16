@@ -178,7 +178,7 @@ module.exports = function(grunt) {
      */
     realFavicon: {
       dist: {
-        src: '<%= s %>favicon/example.png',
+        src: '<%= s %>favicon/favicon.png',
         dest: '<%= d %>favicon',
         options: {
           iconsPath: './<%= d %>favicon',
