@@ -1,6 +1,6 @@
 {
   "name": "lego-ipsum",
-  "description": "A Lego-themed dummy text/image generator for native JS and jQuery",
+  "description": "A Lego-themed dummy text/image generator in native JS",
   "version": "0.0.1",
   "license": "GNU LESSER GENERAL PUBLIC LICENSE",
   "author": "Andy White",
