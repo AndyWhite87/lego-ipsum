@@ -30,8 +30,8 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['<%= s %>js/constructor.js', '<%= s %>js/static.js', '<%= s %>js/staticOverrides.js',
-              '<%= s %>js/words.js', '<%= s %>js/randomInt.js', '<%= s %>js/createText.js', '<%= s %>js/createLegoIpsum.js',
-              '<%= s %>js/jQuery.js', '<%= s %>js/declarativeApi.js'],
+              '<%= s %>js/words.js', '<%= s %>js/randomInt.js', '<%= s %>js/createText.js',
+              '<%= s %>js/createLegoIpsum.js','<%= s %>js/declarativeApi.js'],
         dest: '<%= s %>js/concat/<%= filename %>.js' // Build to a temp concat folder (will be picked up by uglify task)
       }
     },
