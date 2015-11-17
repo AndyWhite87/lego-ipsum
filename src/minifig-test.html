@@ -3,7 +3,7 @@
   <head>
 
     <!-- Page title -->
-    <title>[Dev] Lego Ipsum image test page</title>
+    <title>[Dev] Lego Ipsum minifig test page</title>
 
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -11,12 +11,24 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">    
     <meta name="description" content="">
 
+    <!-- Font import(s) -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+
+    <!-- Stylesheet(s) -->
+    <!-- build:remove -->
+      <link rel="stylesheet" href="./css/styles.css">
+    <!-- /build -->
+    <!-- build:template
+      <link rel="stylesheet" href="./dist/css/<%= filename %>.min.css">
+    /build -->
+
+    <!-- Favicons -->
     <style>
       html, body {
         min-height: 100%;
       }
       body {
-        background: #C3FDB8;
+        background: #c5e3ed;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -27,24 +39,55 @@
         padding: 18px;
         vertical-align: top;
       }
+      header {
+        width: 100%;
+      }
+      header a {
+        margin-top: -1.25em;
+        display: block;
+      }
     </style>
 
   </head>
   <body>
 
-    <script>
-      window.onload = function () {
+    <header>
+      <h1>
+        <!-- build:remove -->
+        [Dev] Lego Ipsum
+        <!-- /build -->
+        <!-- build:template
+          <%= title %>
+        /build -->
+        minifig test
+      </h1>
+      <a href="./index.html">&lt; back</a>
+    </header>
 
+    <!-- build:[data-minifig-path] ./dist/img/figs -->
+    <script data-minifig-path="./img/figs">
+      (function () {
+
+        // Total number of minifig images
         var images = 55;
 
+        // Get relative path to minifig folder
+        var scriptTag = document.querySelector('script[data-minifig-path]');
+        if (scriptTag === null) {
+          return;
+        }
+        var minifigPath = scriptTag.getAttribute('data-minifig-path');
+
+        // Show all minifigs
         for (var i = 1; i <= images; i++) {
           var img = document.createElement("img");
-          img.setAttribute("src", "./img/figs/" + i + ".png");
+          img.setAttribute("src", minifigPath + "/" + i + ".png");
           document.body.appendChild(img);
         }
 
-      };
+      })();
     </script>
+    <!-- /build -->
 
   </body>
 </html>
