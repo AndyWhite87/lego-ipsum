@@ -168,7 +168,8 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'index.html': ['<%= s %>index.html'] // Create index.html in root to enable easy publication to GitHub Pages
+          'index.html': ['<%= s %>index.html'], // Create index.html in root to enable easy publication to GitHub Pages
+          'minifig-test.html': ['<%= s %>minifig-test.html'] // Create minifig-test.html in root as well
         }
       }
     },

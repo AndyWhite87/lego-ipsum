@@ -14,13 +14,7 @@
     <!-- Font import(s) -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
 
-    <!-- Stylesheet(s) -->
-    <!-- build:remove -->
-      <link rel="stylesheet" href="./css/styles.css">
-    <!-- /build -->
-    <!-- build:template
-      <link rel="stylesheet" href="./dist/css/<%= filename %>.min.css">
-    /build -->
+    <!-- Stylesheet(s) -->    <link rel="stylesheet" href="./dist/css/lego-ipsum.min.css">
 
     <!-- Favicons -->
     <style>
@@ -52,20 +46,13 @@
   <body>
 
     <header>
-      <h1>
-        <!-- build:remove -->
-        [Dev] Lego Ipsum
-        <!-- /build -->
-        <!-- build:template
-          <%= title %>
-        /build -->
+      <h1>        Lego Ipsum
         minifig test
       </h1>
       <a href="./index.html">&lt; back</a>
     </header>
 
-    <!-- build:[data-minifig-path] ./dist/img/figs -->
-    <script data-minifig-path="./img/figs">
+    <script data-minifig-path="dist/img/figs">
       (function () {
 
         // Total number of minifig images
@@ -87,7 +74,6 @@
 
       })();
     </script>
-    <!-- /build -->
 
   </body>
 </html>
